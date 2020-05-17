@@ -29,6 +29,7 @@ namespace ProjetoCoreAngular
             });
             services.AddSingleton<IConfiguration>(Configuration);
             services.AddTransient<IUsuarioRepositorio, UsuarioRepositorio>();
+            services.AddTransient<IProdutoRepositorio, ProdutoRepositorio>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

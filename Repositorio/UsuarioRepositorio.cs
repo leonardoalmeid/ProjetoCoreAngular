@@ -17,7 +17,7 @@ namespace ProjetoCoreAngular.Repositorio
             _configuracao = configuracao;
         }
 
-        public string Connection()
+        private string _Connection()
         {
             var connection = _configuracao.GetSection("ConnectionStrings").GetSection("LocalHostConnection").Value;
 
@@ -26,7 +26,7 @@ namespace ProjetoCoreAngular.Repositorio
 
         public List<Usuario>ConsultarUsuarios()
         {
-            var db = this.Connection();
+            var db = _Connection();
             List<Usuario> usuarios = new List<Usuario>();
 
             using (var con = new SqlConnection(db))
@@ -52,7 +52,7 @@ namespace ProjetoCoreAngular.Repositorio
 
         public bool CadastrarUsuario(CadastrarUsuario cadastrar)
         {
-            var db = this.Connection();
+            var db = _Connection();
             bool result;
             using (var con = new SqlConnection(db))
             {
@@ -79,9 +79,9 @@ namespace ProjetoCoreAngular.Repositorio
                 {
                     con.Close();
                 }
-
-                return result;
             }
+
+            return result;
         }
 
         public Usuario Get(int id)

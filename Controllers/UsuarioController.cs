@@ -18,7 +18,7 @@ namespace ProjetoCoreAngular.Controllers
         {
             _usuario = usuario;
         }
-        // GET: api/Usuario
+
         [HttpGet]
         public IEnumerable<Usuario> Get()
         {
@@ -35,20 +35,6 @@ namespace ProjetoCoreAngular.Controllers
             var result = _usuario.CadastrarUsuario(dados);
 
             return result;
-        }
-
-        // PUT: api/Usuario/5
-        [HttpPut("{id}")]
-        public object Put(int id, [FromBody] string value)
-        {
-            return BadRequest();
-        }
-
-        // DELETE: api/ApiWithActions/5
-        [HttpDelete("{id}")]
-        public object Delete(int id)
-        {
-            return BadRequest();
         }
     }
 }
