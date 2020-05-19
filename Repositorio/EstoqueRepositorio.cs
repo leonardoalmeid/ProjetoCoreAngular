@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using Dapper;
 using ProjetoCoreAngular.Models;
 using Microsoft.Extensions.Configuration;
@@ -8,111 +9,62 @@ using System.Data.SqlClient;
 
 namespace ProjetoCoreAngular.Repositorio
 {
-    public class IdProduto
-    {
-        public int Id { get; set; }
-    }
-
-    public class ProdutoRepositorio : IProdutoRepositorio
+    public class EstoqueRepositorio : IEstoqueRepositorio
     {
         IConfiguration _configuracao;
-        public ProdutoRepositorio(IConfiguration configuracao)
+        public EstoqueRepositorio(IConfiguration configuracao)
         {
             _configuracao = configuracao;
         }
 
-        private string _Connection()
-        {
-            var connection = _configuracao.GetSection("ConnectionStrings").GetSection("LocalHostConnection").Value;
-
-            return connection;
-        }
-
-        public bool InserirProduto(Produto cadastrar)
+        public bool AdicionarProduto(EstoqueProduto dados)
         {
             var db = _Connection();
-            bool result;
-            using (var con = new SqlConnection(db))
-            {
-                try
-                {
-                    var query = @"INSERT INTO Produtos(Nome,Marca,Categoria,Modelo,PrecoUnitario,Quantidade)
-                                         VALUES (@Nome,@Marca,@Categoria,@Modelo,@PrecoUnitario,@Quantidade)";
-                    con.Open();
-                    var retorno = con.Execute(query, cadastrar);
-                    if (retorno >= 1)
-                    {
-                        result = true;
-                    }
-                    else
-                    {
-                        result = false;
-                    }
-                }
-                catch (Exception ex)
-                {
-                    throw ex;
-                }
-                finally
-                {
-                    con.Close();
-                }
-            }
-            return result;
-        }
+            bool retorno;
 
-        public bool RemoverProduto(int id)
-        {
-            var db = _Connection();
-            bool result;
-            var paramentro = new IdProduto(){ Id = id };
-            using (var con = new SqlConnection(db))
-            {
-                try
-                {
-                    var query = @"DELETE FROM Produtos Where Id = @id";
-                    con.Open();
-                    var retorno = con.Execute(query,paramentro);
-                    if (retorno >= 1)
-                    {
-                        result = true;
-                    }
-                    else
-                    {
-                        result = false;
-                    }
-                }
-                catch (Exception ex)
-                {
-                    throw ex;
-                }
-                finally
-                {
-                    con.Close();
-                }
-            }
-
-            return result;
-        }
-
-        public bool AtualizarProduto(Produto atualizar)
-        {
-            var db = _Connection();
-            bool result;
             using (var con = new SqlConnection(db))
             {
                 try
                 {
                     var query = @"UPDATE Produtos
-                                       SET Nome = @Nome
-                                          ,Marca = @Marca
-                                          ,Categoria = @Categoria
-                                          ,Modelo = @Modelo
-                                          ,PrecoUnitario = @PrecoUnitario
-                                          ,Quantidade = @Quantidade
-                                     WHERE Id = @Id";
+                                       SET Estoque = @idEstoque
+                                     WHERE Id = @idProduto";
                     con.Open();
-                    var retorno = con.Execute(query, atualizar);
+                    var retornoConsulta = con.Execute(query, dados);
+                    if (retornoConsulta >= 1)
+                    {
+                        retorno = true;
+                    }
+                    else
+                    {
+                        retorno = false;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    throw ex;
+                }
+                finally
+                {
+                    con.Close();
+                }
+            }
+
+            return retorno;
+        }
+
+        public bool CadastrarEstoque(Estoque estoque)
+        {
+            var db = _Connection();
+            bool result;
+            using (var con = new SqlConnection(db))
+            {
+                try
+                {
+                    var query = @"INSERT INTO Estoques(Nome)
+                                    VALUES (@Nome)";
+                    con.Open();
+                    var retorno = con.Execute(query, estoque);
                     if (retorno >= 1)
                     {
                         result = true;
@@ -131,22 +83,23 @@ namespace ProjetoCoreAngular.Repositorio
                     con.Close();
                 }
             }
-
             return result;
         }
 
-        public List<Produto> RetornarProdutos()
+        public List<Produto> ConsutarProdutosEmEstoque(int id)
         {
             var db = _Connection();
+            var paramentro = new IdProduto() { Id = id };
             List<Produto> produtos = new List<Produto>();
 
             using (var con = new SqlConnection(db))
             {
                 try
                 {
-                    var query = @"SELECT * FROM Produtos";
+                    var query = @"SELECT * FROM Produtos WHERE Estoque = @id";
                     con.Open();
-                    produtos = con.Query<Produto>(query).ToList();
+                    produtos = con.Query<Produto>(query,paramentro).ToList();
+
                 }
                 catch (Exception ex)
                 {
@@ -161,9 +114,75 @@ namespace ProjetoCoreAngular.Repositorio
             return produtos;
         }
 
-        public Produto Get(int id)
+        public bool RemoverProduto(EstoqueProduto dados)
         {
-            throw new NotImplementedException();
+            var db = _Connection();
+            bool retorno;
+
+            using (var con = new SqlConnection(db))
+            {
+                try
+                {
+                    var query = @"UPDATE Produtos
+                                       SET Estoque = @idEstoque
+                                     WHERE Id = @idProduto";
+                    con.Open();
+                    var retornoConsulta = con.Execute(query, dados);
+                    if (retornoConsulta >= 1)
+                    {
+                        retorno = true;
+                    }
+                    else
+                    {
+                        retorno = false;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    throw ex;
+                }
+                finally
+                {
+                    con.Close();
+                }
+            }
+
+            return retorno;
         }
+
+        public List<Estoque> RetornarEstoques()
+        {
+            var db = _Connection();
+            List<Estoque> estoques = new List<Estoque>();
+
+            using (var con = new SqlConnection(db))
+            {
+                try
+                {
+                    var query = @"SELECT * FROM Estoques";
+                    con.Open();
+                    estoques = con.Query<Estoque>(query).ToList();
+                }
+                catch (Exception ex)
+                {
+                    throw ex;
+                }
+                finally
+                {
+                    con.Close();
+                }
+            }
+
+            return estoques;
+        }
+
+        private string _Connection()
+        {
+            var connection = _configuracao.GetSection("ConnectionStrings").GetSection("LocalHostConnection").Value;
+
+            return connection;
+        }
+
+
     }
 }

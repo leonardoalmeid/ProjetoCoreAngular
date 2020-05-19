@@ -11,14 +11,18 @@ namespace ProjetoCoreAngular.Models
         [Key]
         public int Id { get; set; }
         [Required]
-        [Display(Description = "Campo Nome é obrigatório.")]
         public string Nome { get; set; }
+        [Required]
         public string Marca { get; set; }
+        [Required]
         public string Categoria { get; set; }
+        [Required]
         public string Modelo { get; set; }
+        [Required]
         public string PrecoUnitario { get; set; }
+        [Required]
         public int Quantidade { get; set; }
-        //public int Estoque { get; set; }
+        public int Estoque { get; set; }
 
     }
 }
