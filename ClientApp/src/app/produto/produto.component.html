@@ -1,0 +1,59 @@
+<h1>Produtos</h1>
+
+<p class="lead">Mussum Ipsum, cacilds vidis litro abertis. Manduma pindureta quium dia nois paga. Diuretics paradis num copo é
+  motivis de denguis. Posuere libero varius. Nullam a nisl ut ante blandit hendrerit. Aenean sit amet nisi. Nullam
+  volutpat risus nec leo commodo, ut interdum diam laoreet. Sed non consequat odio.</p>
+
+<div class="conteiner justify-content-sm-center mt-5">
+  
+  <div class="row">
+    <div class="col-12 mb-4">
+      <h4>Selecione qual procedimento deseja realizar:</h4>
+    </div>
+  </div> 
+
+  <div class="row">
+    <div class="col-4 text-center">
+      <button class="btn btn-outline-primary btn-block" type="button" (click)="Realizar(1)">Cadastrar Produto</button>
+    </div>
+    <div class="col-4 text-center">
+      <button class="btn btn-outline-primary btn-block" type="button" (click)="Realizar(2)">Consultar Produto</button>
+    </div>
+    <div class="col-4 text-center">
+      <button class="btn btn-outline-primary btn-block" type="button" (click)="Realizar(3)">Editar Produto</button>
+    </div>
+  </div>
+
+  <div class="row justify-content-center my-5" *ngIf="tab == 1">
+    <h5>Criar Produto</h5>
+    <div class="col-12">
+      <form>
+  
+        <div class="form-row">
+          <div class="form-group col-sm-2">
+            <label for="inputNome">Id</label>
+            <input type="text" class="form-control" id="inputId" style="background: #dddddd59;" value="1" disabled="true">
+          </div>
+          <div class="form-group col-sm-10">
+            <label for="inputNome">Nome</label>
+            <input type="text" class="form-control" id="inputNome">
+          </div>
+        </div>
+  
+        <div class="form-row">
+          <div class="col-sm-12">
+            <button type="submit" class="btn btn-primary">Criar</button>
+          </div>
+        </div>
+  
+      </form>
+    </div>
+  </div>
+
+</div>
+
+<blockquote class="blockquote text-center">
+  <hr>
+  <a class="mb-0"><strong>Criado por: </strong></a><a>Leonardo e Richard</a>
+  <footer class="blockquote-footer mb-2">MULTIVX - Vitória</footer>
+</blockquote>

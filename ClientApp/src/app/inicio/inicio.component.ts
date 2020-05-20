@@ -3,9 +3,9 @@ import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-home',
-  templateUrl: './home.component.html',
+  templateUrl: './inicio.component.html',
 })
-export class HomeComponent {
+export class InicioComponent {
   Usuarios: Usuario[] = [];
   tab: string;
 
