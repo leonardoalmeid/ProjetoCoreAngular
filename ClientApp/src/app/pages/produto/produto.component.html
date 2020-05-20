@@ -1,0 +1,124 @@
+<h1>Produtos</h1>
+
+<p class="lead">Mussum Ipsum, cacilds vidis litro abertis. Manduma pindureta quium dia nois paga. Diuretics paradis num copo é
+  motivis de denguis. Posuere libero varius. Nullam a nisl ut ante blandit hendrerit. Aenean sit amet nisi. Nullam
+  volutpat risus nec leo commodo, ut interdum diam laoreet. Sed non consequat odio.</p>
+
+<div class="conteiner justify-content-sm-center mt-5">
+  
+  <div class="row">
+    <div class="col-12 mb-4">
+      <h4>Selecione qual procedimento deseja realizar:</h4>
+    </div>
+  </div> 
+
+  <div class="row">
+    <div class="col-4 text-center">
+      <button class="btn btn-outline-primary btn-block" type="button" (click)="opcao(1)">Consultar Produto</button>
+    </div>
+    <div class="col-4 text-center">
+      <button class="btn btn-outline-primary btn-block" type="button" (click)="opcao(2)">Cadastrar Produto</button>
+    </div>
+    <div class="col-4 text-center">
+      <button class="btn btn-outline-primary btn-block" type="button" (click)="opcao(3)">Editar Produto</button>
+    </div>
+  </div>
+
+  <div class="row justify-content my-5" *ngIf="tab == 1">
+    <h5>Produtos</h5>
+    <div class=" table-responsive-sm col-12">
+
+      <table class="table table-hover" *ngIf="produtos && produtos.length > 0">
+        <thead>
+         <tr>
+          <th class="text-center">Id</th>
+          <th class="text-center">Nome</th>
+          <th class="text-center">Marca</th>
+          <th class="text-center">Categoria</th>
+          <th class="text-center">Preço Unitário</th>
+          <th class="text-center">Quantidade</th>
+          <th class="text-center">Estoque</th>
+         </tr>
+        </thead>
+        <tbody *ngFor="let produto of produtos; let i = index">
+         <tr>
+          <td class="text-center">{{produto.id}}</td>
+          <td class="text-center">{{produto.nome}}</td>
+          <td class="text-center">{{produto.marca}}</td>
+          <td class="text-center">{{produto.categoria}}</td>
+          <td class="text-center">{{produto.precoUnitario}}</td>
+          <td class="text-center">{{produto.quantidade}}</td>
+          <td class="text-center">{{produto.estoque}}</td>
+         </tr>
+        </tbody>
+       </table>
+
+    </div>
+    
+  </div>
+
+  <!-- Cadastrar Produtos -->
+  <div class="row justify-content my-5" *ngIf="tab == 2">
+    <div class="col-12">
+      <form>
+  
+        <div class="form-row">
+          <div class="form-group col-sm-2">
+            <label for="inputId">Id</label>
+            <input type="text" class="form-control" id="inputId" style="background: #dddddd59;" value="0" disabled="true">
+          </div>
+          <div class="form-group col-sm-10">
+            <label for="inputNome">Nome<span class="text-danger">*</span></label>
+            <input type="text" class="form-control" id="inputNome">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group col-sm-4">
+            <label for="inputMarca">Marca<span class="text-danger">*</span></label>
+            <input type="text" class="form-control" id="inputMarca">
+          </div>
+          <div class="form-group col-sm-4">
+            <label for="inputCategoria">Categoria<span class="text-danger">*</span></label>
+            <select class="form-control" id="inputCategoria">
+              <option selected>Escolha...</option>
+              <option>Carro</option>
+              <option>Moto</option>
+            </select>
+          </div>
+          <div class="form-group col-sm-4">
+            <label for="inputModelo">Modelo<span class="text-danger">*</span></label>
+            <input type="text" class="form-control" id="inputModelo">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group col-sm-4">
+            <label for="inputQuantidade">Quantidade<span class="text-danger">*</span></label>
+            <input type="number" class="form-control" id="inputQuantidade">
+          </div>
+          <div class="form-group col-sm-4">
+            <label for="inputPrecoUnitario">Preço Unitário<span class="text-danger">*</span></label>
+            <input type="text" class="form-control" id="inputPrecoUnitario">
+          </div>
+        </div>
+
+  
+        <div class="form-row">
+          <div class="col-sm-12">
+            <button type="submit" class="btn btn-primary">Cadastrar</button>
+          </div>
+        </div>
+  
+      </form>
+    </div>
+  </div>
+<!-- end #cadastrarProduto-->
+
+</div>
+
+<blockquote class="blockquote text-center">
+  <hr>
+  <a class="mb-0"><strong>Criado por: </strong></a><a>Leonardo e Richard</a>
+  <footer class="blockquote-footer mb-2">MULTIVX - Vitória</footer>
+</blockquote>

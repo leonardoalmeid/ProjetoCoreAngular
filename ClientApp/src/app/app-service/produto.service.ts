@@ -12,7 +12,7 @@ export class ProdutoService {
     private http: HttpClient
   ) { }
 
-  public obterProdutos(): Observable<Array<Produto>> {
+  public obter(): Observable<Array<Produto>> {
     const url = this.API_URL + 'Produto';
     const result = this.http.get<Produto[]>(url);
     return result;

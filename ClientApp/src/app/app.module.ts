@@ -6,10 +6,11 @@ import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
-import { InicioComponent } from './inicio/inicio.component';
-import { ProdutoComponent } from './produto/produto.component';
-import { EstoqueComponent } from './estoque/estoque.component';
+import { InicioComponent } from './pages/inicio/inicio.component';
+import { ProdutoComponent } from './pages/produto/produto.component';
+import { EstoqueComponent } from './pages/estoque/estoque.component';
 import { ProdutoService } from './app-service/produto.service';
+import { EstoqueService } from './app-service/estoque.service';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { ProdutoService } from './app-service/produto.service';
     ])
   ],
   providers: [
-    ProdutoService
+    ProdutoService,
+    EstoqueService
   ],
   bootstrap: [AppComponent]
 })
