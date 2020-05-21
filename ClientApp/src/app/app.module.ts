@@ -11,6 +11,8 @@ import { ProdutoComponent } from './pages/produto/produto.component';
 import { EstoqueComponent } from './pages/estoque/estoque.component';
 import { ProdutoService } from './app-service/produto.service';
 import { EstoqueService } from './app-service/estoque.service';
+import { CadastrarProdutoComponent } from './pages/produto/cadastrar-produto/cadastrar-produto.component';
+import { EditarProdutoComponent } from './pages/produto/editar-produto/editar-produto.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { EstoqueService } from './app-service/estoque.service';
     NavMenuComponent,
     InicioComponent,
     ProdutoComponent,
-    EstoqueComponent
+    EstoqueComponent,
+    CadastrarProdutoComponent,
+    EditarProdutoComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -27,6 +31,8 @@ import { EstoqueService } from './app-service/estoque.service';
     RouterModule.forRoot([
       { path: '', component: InicioComponent, pathMatch: 'full' },
       { path: 'produto', component: ProdutoComponent },
+      { path: 'cadastrar-produto', component: CadastrarProdutoComponent },
+      { path: 'editar-produto/:id', component: EditarProdutoComponent },
       { path: 'estoque', component: EstoqueComponent },
     ])
   ],

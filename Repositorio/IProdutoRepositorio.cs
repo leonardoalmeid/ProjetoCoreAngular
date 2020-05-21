@@ -10,7 +10,7 @@ namespace ProjetoCoreAngular.Repositorio
     {
         bool InserirProduto(Produto cadastrar);
         List<Produto> RetornarProdutos();
-        Produto Get(int id);
+        List<Produto> RetornarProduto(int id);
         bool AtualizarProduto(Produto atualizar);
         bool RemoverProduto(int id);
     }

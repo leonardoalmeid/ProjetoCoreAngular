@@ -25,10 +25,19 @@ namespace ProjetoCoreAngular.Controllers
 
         // GET: api/Produto/5
         [HttpGet]
-        [Route("{idProduto}")]
+        [Route("Apagar/{idProduto}")]
         public bool Apagar(int idProduto)
         {
             var result = _produto.RemoverProduto(idProduto);
+
+            return result;
+        }
+
+        [HttpGet]
+        [Route("{idProduto}")]
+        public List<Produto> Consultar(int idProduto)
+        {
+            var result = _produto.RetornarProduto(idProduto);
 
             return result;
         }

@@ -13,7 +13,7 @@ export class ProdutoComponent {
   public produtos: Produto[];
 
   constructor(
-    private _produtoService: ProdutoService
+    private _produtoService: ProdutoService,
   ) {
     this._produtoService.obter().subscribe(result => {
       console.log('Retorno Produtos: ', result);
@@ -21,21 +21,5 @@ export class ProdutoComponent {
     }, erro => console.error(erro));
     this.tab = 1;
   }
-
-  public opcao(opc): void {
-    switch (opc) {
-      case 1:
-        this.tab = 1;
-        break;
-      case 2:
-        this.tab = 2;
-        break;
-      case 3:
-        this.tab = 3;
-        break;
-      default:
-        this.tab = 1;
-        break;
-    }
-  }
+  ngOnint() {}
 }

@@ -161,9 +161,31 @@ namespace ProjetoCoreAngular.Repositorio
             return produtos;
         }
 
-        public Produto Get(int id)
+        public List<Produto> RetornarProduto(int id)
         {
-            throw new NotImplementedException();
+            var db = _Connection();
+            var paramentro = new IdProduto() { Id = id };
+            List<Produto> produto = new List<Produto>();
+
+            using (var con = new SqlConnection(db))
+            {
+                try
+                {
+                    var query = @"SELECT * FROM Produtos WHERE Id=@id";
+                    con.Open();
+                    produto = con.Query<Produto>(query, paramentro).ToList();
+                }
+                catch (Exception ex)
+                {
+                    throw ex;
+                }
+                finally
+                {
+                    con.Close();
+                }
+            }
+
+            return produto;
         }
     }
 }

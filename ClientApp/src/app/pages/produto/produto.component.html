@@ -7,13 +7,18 @@
 <div class="conteiner justify-content-sm-center mt-5">
   
   <div class="row">
-    <div class="col-12 mb-4">
-      <h4>Selecione qual procedimento deseja realizar:</h4>
+    <div class="col-12 mb-2">
+      <h4>Lista de produtos</h4>
     </div>
   </div> 
 
   <div class="row">
-    <div class="col-4 text-center">
+    <div class="col-sm-3 text-center">
+      <button class="btn btn-primary btn-block" type="button" [routerLinkActive]="['link-active']"
+       [routerLink]="['/cadastrar-produto']">Cadastrar novo Produto</button>
+    </div>
+    
+    <!-- <div class="col-4 text-center">
       <button class="btn btn-outline-primary btn-block" type="button" (click)="opcao(1)">Consultar Produto</button>
     </div>
     <div class="col-4 text-center">
@@ -21,34 +26,38 @@
     </div>
     <div class="col-4 text-center">
       <button class="btn btn-outline-primary btn-block" type="button" (click)="opcao(3)">Editar Produto</button>
-    </div>
+    </div> -->
   </div>
 
-  <div class="row justify-content my-5" *ngIf="tab == 1">
-    <h5>Produtos</h5>
+  <div class="row justify-content my-3">
     <div class=" table-responsive-sm col-12">
 
       <table class="table table-hover" *ngIf="produtos && produtos.length > 0">
         <thead>
          <tr>
-          <th class="text-center">Id</th>
+          <th class="text-center">#</th>
           <th class="text-center">Nome</th>
           <th class="text-center">Marca</th>
           <th class="text-center">Categoria</th>
           <th class="text-center">Preço Unitário</th>
           <th class="text-center">Quantidade</th>
           <th class="text-center">Estoque</th>
+          <th class="text-center">Ação</th>
          </tr>
         </thead>
         <tbody *ngFor="let produto of produtos; let i = index">
          <tr>
-          <td class="text-center">{{produto.id}}</td>
+          <th class="text-center" scope="row">{{produto.id}}</th>
           <td class="text-center">{{produto.nome}}</td>
           <td class="text-center">{{produto.marca}}</td>
           <td class="text-center">{{produto.categoria}}</td>
           <td class="text-center">{{produto.precoUnitario}}</td>
           <td class="text-center">{{produto.quantidade}}</td>
           <td class="text-center">{{produto.estoque}}</td>
+          <td class="text-center">
+            <button class="btn btn-outline-primary" type="button" [routerLinkActive]="['link-active']"
+              [routerLink]="['/editar-produto', produto.id]">Editar</button>
+          </td>
          </tr>
         </tbody>
        </table>
