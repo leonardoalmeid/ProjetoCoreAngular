@@ -17,16 +17,7 @@
       <button class="btn btn-primary btn-block" type="button" [routerLinkActive]="['link-active']"
        [routerLink]="['/cadastrar-produto']">Cadastrar novo Produto</button>
     </div>
-    
-    <!-- <div class="col-4 text-center">
-      <button class="btn btn-outline-primary btn-block" type="button" (click)="opcao(1)">Consultar Produto</button>
-    </div>
-    <div class="col-4 text-center">
-      <button class="btn btn-outline-primary btn-block" type="button" (click)="opcao(2)">Cadastrar Produto</button>
-    </div>
-    <div class="col-4 text-center">
-      <button class="btn btn-outline-primary btn-block" type="button" (click)="opcao(3)">Editar Produto</button>
-    </div> -->
+
   </div>
 
   <div class="row justify-content my-3">
@@ -65,64 +56,6 @@
     </div>
     
   </div>
-
-  <!-- Cadastrar Produtos -->
-  <div class="row justify-content my-5" *ngIf="tab == 2">
-    <div class="col-12">
-      <form>
-  
-        <div class="form-row">
-          <div class="form-group col-sm-2">
-            <label for="inputId">Id</label>
-            <input type="text" class="form-control" id="inputId" style="background: #dddddd59;" value="0" disabled="true">
-          </div>
-          <div class="form-group col-sm-10">
-            <label for="inputNome">Nome<span class="text-danger">*</span></label>
-            <input type="text" class="form-control" id="inputNome">
-          </div>
-        </div>
-
-        <div class="form-row">
-          <div class="form-group col-sm-4">
-            <label for="inputMarca">Marca<span class="text-danger">*</span></label>
-            <input type="text" class="form-control" id="inputMarca">
-          </div>
-          <div class="form-group col-sm-4">
-            <label for="inputCategoria">Categoria<span class="text-danger">*</span></label>
-            <select class="form-control" id="inputCategoria">
-              <option selected>Escolha...</option>
-              <option>Carro</option>
-              <option>Moto</option>
-            </select>
-          </div>
-          <div class="form-group col-sm-4">
-            <label for="inputModelo">Modelo<span class="text-danger">*</span></label>
-            <input type="text" class="form-control" id="inputModelo">
-          </div>
-        </div>
-
-        <div class="form-row">
-          <div class="form-group col-sm-4">
-            <label for="inputQuantidade">Quantidade<span class="text-danger">*</span></label>
-            <input type="number" class="form-control" id="inputQuantidade">
-          </div>
-          <div class="form-group col-sm-4">
-            <label for="inputPrecoUnitario">Preço Unitário<span class="text-danger">*</span></label>
-            <input type="text" class="form-control" id="inputPrecoUnitario">
-          </div>
-        </div>
-
-  
-        <div class="form-row">
-          <div class="col-sm-12">
-            <button type="submit" class="btn btn-primary">Cadastrar</button>
-          </div>
-        </div>
-  
-      </form>
-    </div>
-  </div>
-<!-- end #cadastrarProduto-->
 
 </div>
 

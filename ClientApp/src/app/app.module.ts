@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 
@@ -13,6 +13,12 @@ import { ProdutoService } from './app-service/produto.service';
 import { EstoqueService } from './app-service/estoque.service';
 import { CadastrarProdutoComponent } from './pages/produto/cadastrar-produto/cadastrar-produto.component';
 import { EditarProdutoComponent } from './pages/produto/editar-produto/editar-produto.component';
+import { PaginaNaoEncontradaComponent } from './pages/pagina-nao-encontrada/pagina-nao-encontrada.component';
+import { ModalSucessoComponent } from './modal/modal-sucesso/modal-sucesso.component';
+import { ModalErroComponent } from './modal/modal-erro/modal-erro.component';
+import { ModalAlertComponent } from './modal/modal-alert/modal-alert.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -22,23 +28,32 @@ import { EditarProdutoComponent } from './pages/produto/editar-produto/editar-pr
     ProdutoComponent,
     EstoqueComponent,
     CadastrarProdutoComponent,
-    EditarProdutoComponent
+    EditarProdutoComponent,
+    PaginaNaoEncontradaComponent,
+    ModalSucessoComponent,
+    ModalErroComponent,
+    ModalAlertComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule,
+    MatDialogModule,
     RouterModule.forRoot([
       { path: '', component: InicioComponent, pathMatch: 'full' },
       { path: 'produto', component: ProdutoComponent },
       { path: 'cadastrar-produto', component: CadastrarProdutoComponent },
       { path: 'editar-produto/:id', component: EditarProdutoComponent },
       { path: 'estoque', component: EstoqueComponent },
-    ])
+      { path: '404', component: PaginaNaoEncontradaComponent },
+      {path: '**', redirectTo: '/404'}
+    ]),
+    BrowserAnimationsModule
   ],
   providers: [
     ProdutoService,
-    EstoqueService
+    EstoqueService,
   ],
   bootstrap: [AppComponent]
 })

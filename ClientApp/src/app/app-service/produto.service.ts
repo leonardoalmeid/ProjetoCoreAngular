@@ -13,8 +13,28 @@ export class ProdutoService {
   ) { }
 
   public obter(): Observable<Array<Produto>> {
-    const url = this.API_URL + 'Produto';
+    const url = `${this.API_URL}Produto`;
     const result = this.http.get<Produto[]>(url);
+    return result;
+  }
+  public cadatrar(dados: Produto): Observable<any> {
+    const url = `${this.API_URL}Produto/Cadastrar`;
+    const result = this.http.post<Produto>(url, dados);
+    return result;
+  }
+  public obterProduto(idProduto: number): Observable<any> {
+    const url = `${this.API_URL}Produto/${idProduto}`;
+    const result = this.http.get(url);
+    return result;
+  }
+  public atualizar(dados: Produto): Observable<any> {
+    const url = `${this.API_URL}Produto/Atualizar`;
+    const result = this.http.put(url, dados);
+    return result;
+  }
+  public apagar(idProduto: number): Observable<any> {
+    const url = `${this.API_URL}Produto/Apagar/${idProduto}`;
+    const result = this.http.get(url);
     return result;
   }
 }
