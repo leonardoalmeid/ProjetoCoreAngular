@@ -55,6 +55,10 @@ import { MatDialog, MatDialogModule } from '@angular/material/dialog';
     ProdutoService,
     EstoqueService,
   ],
+  entryComponents: [
+    ModalSucessoComponent,
+    ModalErroComponent
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

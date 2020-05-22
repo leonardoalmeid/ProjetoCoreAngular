@@ -1,1 +1,12 @@
-<p>modal-erro works!</p>
+<div id="modal-content-wrapper">
+  <header id="modal-header">
+      <h1 id="modal-title">Error</h1>
+  </header>
+  <section id="modal-body">
+      <p>{{mensagemErro}}</p>
+  </section>
+  <footer id="modal-footer">
+      <!-- <button mat-raised-button id="modal-action-button" (click)="actionFunction()">Logout</button> -->
+      <button type="button" class="btn btn-primary" id="modal-cancel-button" (click)="fecharModal()">Ok</button>
+  </footer>
+</div>

@@ -7,7 +7,8 @@ import { ModalSucessoComponent } from 'src/app/modal/modal-sucesso/modal-sucesso
 
 
 @NgModule({
-  declarations: [
+  declarations: [ ],
+  entryComponents: [
     ModalSucessoComponent
   ],
   imports: [

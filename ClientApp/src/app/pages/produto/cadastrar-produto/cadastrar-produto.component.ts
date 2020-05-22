@@ -4,6 +4,7 @@ import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { Produto } from 'src/app/models/produto';
 import { ModalSucessoComponent } from 'src/app/modal/modal-sucesso/modal-sucesso.component';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { ModalErroComponent } from 'src/app/modal/modal-erro/modal-erro.component';
 
 @Component({
   selector: 'app-cadastrar-produto',
@@ -48,15 +49,28 @@ export class CadastrarProdutoComponent implements OnInit {
 
     this._produtoService.cadatrar(this.dadosProduto).subscribe(resp => {
       console.log('Retorno Cadastro Produto: ', resp);
-      this.openModalSucesso();
-    }, erro => console.log('Retorno Erro Cadastro Produto: ', erro));
+      if (resp) {
+        this.openModalSucesso();
+      } else {
+        this.openModalErro();
+      }
+    }, erro => {console.log('Retorno Erro Cadastro Produto: ', erro); alert('Ocorreu um erro interno.'); });
   }
   public openModalSucesso() {
     const config = new MatDialogConfig();
-    config.disableClose = false; // se o usuário clicar fora do modal, ele não será fechado
-    config.id = 'modal-sucesso'; // um ID para o qual a caixa de diálogo será conhecida (útil para o CSS)
-    config.height = '350px'; // altura modal
+    config.disableClose = true; // se o usuário clicar fora do modal, ele não será fechado
+    config.id = 'Cadastro realizado com sucesso!'; // um ID para o qual a caixa de diálogo será conhecida
+    config.height = '250px'; // altura modal
     config.width = '600px'; // largura da caixa modal
+    config.ariaLabel = 'Cadastro realizado com sucesso';
     const modalDialog = this.matDialog.open(ModalSucessoComponent, config);
+  }
+  public openModalErro() {
+    const config = new MatDialogConfig();
+    config.disableClose = true; // se o usuário clicar fora do modal, ele não será fechado
+    config.id = 'Ocorreu um erro ao cadastrar o produto.'; // um ID para o qual a caixa de diálogo será conhecida
+    config.height = '250px'; // altura modal
+    config.width = '600px'; // largura da caixa modal
+    const modalDialog = this.matDialog.open(ModalErroComponent, config);
   }
 }
