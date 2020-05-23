@@ -1,0 +1,411 @@
+{
+	"info": {
+		"_postman_id": "4986927e-7595-4093-a02d-604106e37287",
+		"name": "ControleEstoque_Collection",
+		"description": "Apis para o trabalho da faculdade",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Estoque",
+			"item": [
+				{
+					"name": "ConsultarEstoque",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:44354/api/Estoque/",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44354",
+							"path": [
+								"api",
+								"Estoque",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ConsultarProdutosEmEstoque",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "text/html",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "https://localhost:44354/api/Estoque/1",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44354",
+							"path": [
+								"api",
+								"Estoque",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "RemoverEstoque",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "text/html",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "https://localhost:44354/api/Estoque/Remover/1",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44354",
+							"path": [
+								"api",
+								"Estoque",
+								"Remover",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CadastrarEstoque",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"nome\": \"Motos\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:44354/api/Estoque/Cadastrar",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44354",
+							"path": [
+								"api",
+								"Estoque",
+								"Cadastrar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AdicionarItemEstoque",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"idProduto\": 12,\n\t\"idEstoque\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:44354/api/Estoque/AdicionarItem",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44354",
+							"path": [
+								"api",
+								"Estoque",
+								"AdicionarItem"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "RemoverItemEstoque",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"idProduto\": 5,\n\t\"idEstoque\": 3\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:44354/api/Estoque/RemoverItem",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44354",
+							"path": [
+								"api",
+								"Estoque",
+								"RemoverItem"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Produto",
+			"item": [
+				{
+					"name": "ConsultarProduto",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:44354/api/Produto/",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44354",
+							"path": [
+								"api",
+								"Produto",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ConsultarProdutoSemEstoque",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:44354/api/Produto/ProdutoSemEstoque",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44354",
+							"path": [
+								"api",
+								"Produto",
+								"ProdutoSemEstoque"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ConsultarProdutoId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:44354/api/Produto/5",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44354",
+							"path": [
+								"api",
+								"Produto",
+								"5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CadastrarProduto",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "text/html",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"nome\": \"BMW S1000 RR 2020\",\n\t\"marca\": \"BMW\",\n\t\"categoria\": \"Moto\",\n\t\"modelo\": \"S1000RR\",\n\t\"precoUnitario\": \"86.000\",\n\t\"quantidade\": 50\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:44354/api/Produto/Cadastrar/",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44354",
+							"path": [
+								"api",
+								"Produto",
+								"Cadastrar",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AtualizarProduto",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"id\": 5,\r\n        \"nome\": \"BMW S1000 RR 2020\",\r\n        \"marca\": \"BMW\",\r\n        \"categoria\": \"Moto\",\r\n        \"modelo\": \"S1000RR\",\r\n        \"precoUnitario\": \"86.000\",\r\n        \"quantidade\": 25\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:44354/api/Produto/Atualizar",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44354",
+							"path": [
+								"api",
+								"Produto",
+								"Atualizar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ApagarProduto",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:44354/api/Produto/Apagar/5",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44354",
+							"path": [
+								"api",
+								"Produto",
+								"Apagar",
+								"5"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Usuario",
+			"item": [
+				{
+					"name": "ConsultarUsuario",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:44354/api/Usuario/",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44354",
+							"path": [
+								"api",
+								"Usuario",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CadastrarUsuario",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"nome\": \"Almir\",\n\t\"cpf\": \"14772437711\",\n\t\"email\": \"almir@teste.com\",\n\t\"telefone\": \"27999573130\",\n\t\"endereco\": \"Petrolina n119\",\n\t\"senha\": \"abc123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:44354/api/Usuario/Cadastrar",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44354",
+							"path": [
+								"api",
+								"Usuario",
+								"Cadastrar"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
