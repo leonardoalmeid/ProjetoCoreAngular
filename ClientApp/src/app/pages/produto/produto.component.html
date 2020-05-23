@@ -1,21 +1,22 @@
 <h1>Produtos</h1>
 
-<p class="lead">Mussum Ipsum, cacilds vidis litro abertis. Manduma pindureta quium dia nois paga. Diuretics paradis num copo é
+<p class="lead">Mussum Ipsum, cacilds vidis litro abertis. Manduma pindureta quium dia nois paga. Diuretics paradis num
+  copo é
   motivis de denguis. Posuere libero varius. Nullam a nisl ut ante blandit hendrerit. Aenean sit amet nisi. Nullam
   volutpat risus nec leo commodo, ut interdum diam laoreet. Sed non consequat odio.</p>
 
 <div class="conteiner justify-content-sm-center mt-5">
-  
+
   <div class="row">
     <div class="col-12 mb-2">
       <h4>Lista de produtos</h4>
     </div>
-  </div> 
+  </div>
 
   <div class="row">
     <div class="col-sm-3 text-center">
       <button class="btn btn-primary btn-block" type="button" [routerLinkActive]="['link-active']"
-       [routerLink]="['/cadastrar-produto']">Cadastrar novo Produto</button>
+        [routerLink]="['/cadastrar-produto']">Cadastrar novo Produto</button>
     </div>
 
   </div>
@@ -25,46 +26,47 @@
 
       <table class="table table-hover">
         <thead>
-         <tr>
-          <th class="text-center">#</th>
-          <th class="text-center">Nome</th>
-          <th class="text-center">Marca</th>
-          <th class="text-center">Categoria</th>
-          <th class="text-center">Preço Unitário</th>
-          <th class="text-center">Quantidade</th>
-          <th class="text-center">Estoque</th>
-          <th class="text-center">Ações</th>
-         </tr>
+          <tr>
+            <th class="text-center">#</th>
+            <th class="text-center">Nome</th>
+            <th class="text-center">Marca</th>
+            <th class="text-center">Categoria</th>
+            <th class="text-center">Preço Unitário</th>
+            <th class="text-center">Quantidade</th>
+            <th class="text-center">Estoque</th>
+            <th class="text-center">Ações</th>
+          </tr>
         </thead>
         <tbody *ngFor="let produto of produtos; let i = index">
-         <tr>
-          <th class="text-center" scope="row">{{i+1}}</th>
-          <td class="text-center">{{produto.nome}}</td>
-          <td class="text-center">{{produto.marca}}</td>
-          <td class="text-center">{{produto.categoria}}</td>
-          <td class="text-center">{{produto.precoUnitario}}</td>
-          <td class="text-center">{{produto.quantidade}}</td>
-          <td class="text-center">{{produto.estoque}}</td>
-          <td class="text-center">
-            <button class="btn btn-outline-primary btn-sm" type="button" [routerLinkActive]="['link-active']"
-              [routerLink]="['/editar-produto', produto.id]">Editar</button>
-              <button class="btn btn-outline-danger ml-2 btn-sm" type="button" (click)="removerProduto(produto.id)">Remover</button>
-          </td>
-         </tr>
+          <tr>
+            <th class="text-center" scope="row">{{i+1}}</th>
+            <td class="text-center">{{produto.nome}}</td>
+            <td class="text-center">{{produto.marca}}</td>
+            <td class="text-center">{{produto.categoria}}</td>
+            <td class="text-center">{{produto.precoUnitario}}</td>
+            <td class="text-center">{{produto.quantidade}}</td>
+            <td class="text-center">{{produto.estoque}}</td>
+            <td class="text-center">
+              <button class="btn btn-outline-primary btn-sm" type="button" [routerLinkActive]="['link-active']"
+                [routerLink]="['/editar-produto', produto.id]">Editar</button>
+              <button class="btn btn-outline-danger ml-2 btn-sm" type="button"
+                (click)="removerProduto(produto.id)">Remover</button>
+            </td>
+          </tr>
         </tbody>
-       </table>
-       <div class="col-sm-12 text-center" *ngIf="produtos.length == 0">
+      </table>
+      <div class="col-sm-12 text-center" *ngIf="produtos.length == 0">
         <p>Nenhum produto encontrado.</p>
       </div>
 
     </div>
-    
+
   </div>
 
 </div>
 
 <blockquote class="blockquote text-center">
   <hr>
-  <a class="mb-0"><strong>Criado por: </strong></a><a>Leonardo e Richard</a>
+  <a class="mb-0"><strong>Criado por: </strong></a><a>Leonardo, Richard e Antonio</a>
   <footer class="blockquote-footer mb-2">MULTIVX - Vitória</footer>
 </blockquote>

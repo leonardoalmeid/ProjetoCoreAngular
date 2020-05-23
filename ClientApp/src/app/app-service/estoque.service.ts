@@ -25,6 +25,11 @@ export class EstoqueService {
     const result = this.http.post(url, dados);
     return result;
   }
+  public adicionarItem(dados: EstoqueProduto): Observable<any> {
+    const url = `${this.API_URL}Estoque/AdicionarItem`;
+    const result = this.http.post(url, dados);
+    return result;
+  }
   public removerItem(dados: EstoqueProduto): Observable<any> {
     const url = `${this.API_URL}Estoque/RemoverItem`;
     const result = this.http.post(url, dados);

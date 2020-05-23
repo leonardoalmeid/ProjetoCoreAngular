@@ -6,7 +6,6 @@ import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { Produto } from 'src/app/models/produto';
 import { ModalSucessoComponent } from 'src/app/modal/modal-sucesso/modal-sucesso.component';
 import { ModalErroComponent } from 'src/app/modal/modal-erro/modal-erro.component';
-
 @Component({
   selector: 'app-editar-produto',
   templateUrl: './editar-produto.component.html',
@@ -37,7 +36,10 @@ export class EditarProdutoComponent implements OnInit {
         this.preencherFormulario();
         console.log('Retorno de um produto em especifico: ', resp);
       }
-    }, erro => {alert('Ocorreu um erro interno'); console.log(erro); });
+    }, erro => {
+      alert('Ocorreu um erro interno');
+      console.log(erro);
+    });
   }
   public criarFormulario() {
     this.formularioProduto = this.formBuilder.group({
@@ -85,7 +87,10 @@ export class EditarProdutoComponent implements OnInit {
       } else {
         this.openModalErro();
       }
-    }, erro => {console.log('Retorno Erro Atualizar Produto: ', erro); alert('Ocorreu um erro interno.'); });
+    }, erro => {
+      console.log('Retorno Erro Atualizar Produto: ', erro);
+      alert('Ocorreu um erro interno.');
+    });
   }
   public openModalSucesso() {
     const config = new MatDialogConfig();

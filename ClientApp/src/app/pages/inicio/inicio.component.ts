@@ -10,7 +10,7 @@ export class InicioComponent {
   tab: string;
 
   constructor(http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
-    http.get<Usuario[]>(baseUrl + 'api/Usuario').subscribe(result => {
+    http.get < Usuario[] > (baseUrl + 'api/Usuario').subscribe(result => {
       console.log('Retorno: ', result);
       this.Usuarios = result;
     }, error => console.error(error));
@@ -25,4 +25,3 @@ interface Usuario {
   Nome: string;
   Email: string;
 }
-

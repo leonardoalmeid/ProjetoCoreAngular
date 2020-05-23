@@ -26,7 +26,10 @@ export class EstoqueComponent {
       if (result) {
         this.estoques = result;
       }
-    }, erro => {console.error(erro); alert('Ocorreu um erro interno.'); });
+    }, erro => {
+      console.error(erro);
+      alert('Ocorreu um erro interno.');
+    });
   }
   public removerEstoque(idEstoque: number) {
     this._estoqueService.removerEstoque(idEstoque).subscribe(resp => {
@@ -37,7 +40,10 @@ export class EstoqueComponent {
       } else {
         this.openModalErro();
       }
-    }, erro => {console.log(erro); alert('Ocorreu um erro interno.'); } );
+    }, erro => {
+      console.log(erro);
+      alert('Ocorreu um erro interno.');
+    });
   }
   public openModalSucesso() {
     const config = new MatDialogConfig();

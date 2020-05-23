@@ -5,7 +5,6 @@ import { Produto } from '../../models/produto';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { ModalSucessoComponent } from 'src/app/modal/modal-sucesso/modal-sucesso.component';
 import { ModalErroComponent } from 'src/app/modal/modal-erro/modal-erro.component';
-
 @Component({
   selector: 'app-produto-component',
   templateUrl: './produto.component.html',
@@ -38,7 +37,10 @@ export class ProdutoComponent {
       } else {
         this.openModalErro();
       }
-    }, erro => {console.log(erro); alert('Ocorreu um erro interno.'); } );
+    }, erro => {
+      console.log(erro);
+      alert('Ocorreu um erro interno.');
+    });
   }
   public openModalSucesso() {
     const config = new MatDialogConfig();

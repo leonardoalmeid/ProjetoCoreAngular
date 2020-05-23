@@ -37,4 +37,9 @@ export class ProdutoService {
     const result = this.http.get(url);
     return result;
   }
+  public obterProdutoSemEstoque(): Observable<Array<Produto>> {
+    const url = `${this.API_URL}Produto/ProdutoSemEstoque`;
+    const result = this.http.get<Produto[]>(url);
+    return result;
+  }
 }

@@ -17,7 +17,7 @@
 
     <div class="col-sm-3 text-center">
       <button class="btn btn-primary btn-block" type="button" [routerLinkActive]="['link-active']"
-       [routerLink]="['/cadastrar-estoque']">Novo estoque</button>
+        [routerLink]="['/cadastrar-estoque']">Novo estoque</button>
     </div>
 
   </div>
@@ -26,46 +26,43 @@
   <div class="row justify-content my-3">
     <div class=" table-responsive-sm col-12">
 
+      <!-- Tabela de Estoque Cadastrados -->
       <table class="table table-hover">
         <thead>
-         <tr>
-          <th class="text-center">#</th>
-          <th class="text-center">Visualizar?</th>
-          <th class="text-center">Nome</th>
-          <th class="text-center">Quantidade</th>
-          <th class="text-center">Ações</th>
-         </tr>
+          <tr>
+            <th class="text-center">#</th>
+            <th class="text-center">Nome</th>
+            <th class="text-center">Quantidade de Produtos</th>
+            <th class="text-center">Ações</th>
+          </tr>
         </thead>
         <tbody *ngFor="let estoque of estoques; let i = index">
-         <tr>
-          <th class="text-center" scope="row">{{i+1}}</th>
-          <td class="text-center">
-            <button class="btn btn-outline-primary btn-sm" type="button" [routerLinkActive]="['link-active']"
-              [routerLink]="['/consultar-estoque', estoque.id,estoque.nome]">Ver</button>
-          </td>
-          <td class="text-center">{{estoque.nome}}</td>
-          <td class="text-center">{{estoque.quantidade}}</td>
-          <td class="text-center">
-            <button class="btn btn-outline-primary btn-sm" type="button" [routerLinkActive]="['link-active']"
-              [routerLink]="['/adicionar-produto', estoque.id]">Adicionar Produto</button>
-            <button class="btn btn-outline-danger ml-2 btn-sm" type="button" (click)="removerEstoque(estoque.id)">Remover</button>
-          </td>
-         </tr>
+          <tr>
+            <th class="text-center" scope="row">{{i+1}}</th>
+            <td class="text-center">{{estoque.nome}}</td>
+            <td class="text-center">{{estoque.quantidade}}</td>
+            <td class="text-center">
+              <button class="btn btn-outline-primary btn-sm" type="button" [routerLinkActive]="['link-active']"
+                [routerLink]="['/consultar-estoque', estoque.id,estoque.nome]">Ver</button>
+              <button class="btn btn-outline-danger ml-2 btn-sm" type="button"
+                (click)="removerEstoque(estoque.id)">Remover</button>
+            </td>
+          </tr>
         </tbody>
-       </table>
-       <div class="col-sm-12 text-center" *ngIf="estoques.length == 0">
+      </table>
+      <div class="col-sm-12 text-center" *ngIf="estoques.length == 0">
         <p>Nenhum estoque encontrado.</p>
       </div>
+      <!-- End Tabela de estoque cadastrados -->
 
     </div>
-    
+
   </div>
 
 </div>
 
 <blockquote class="blockquote text-center">
   <hr>
-  <a class="mb-0"><strong>Criado por: </strong></a><a>Leonardo e Richard</a>
+  <a class="mb-0"><strong>Criado por: </strong></a><a>Leonardo, Richard e Antonio</a>
   <footer class="blockquote-footer mb-2">MULTIVX - Vitória</footer>
 </blockquote>
-

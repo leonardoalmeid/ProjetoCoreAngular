@@ -1,25 +1,37 @@
-<div class="row justify-content-center my-5">
-  <h5>Criar Estoque</h5>
-  <div class="col-12">
-    <form>
+<div class="title">
+  <h1>Novo Estoque</h1>
+  <p class="lead">Crie um novo estoque para guardar os seus produtos.</p>
+</div>
 
-      <div class="form-row">
-        <div class="form-group col-sm-2">
-          <label for="inputNome">Id</label>
-          <input type="text" class="form-control" id="inputId" style="background: #dddddd59;" value="1" disabled="true">
-        </div>
-        <div class="form-group col-sm-10">
-          <label for="inputNome">Nome</label>
-          <input type="text" class="form-control" id="inputNome">
-        </div>
-      </div>
+<div class="container-fluid justify-content">
 
-      <div class="form-row">
-        <div class="col-sm-12">
-          <button type="submit" class="btn btn-primary">Criar</button>
-        </div>
-      </div>
+  <!-- Cadastrar Estoque -->
+  <div class="row justify-content my-5">
+    <div class="col-12">
+      <form [formGroup]="formularioEstoque" (ngSubmit)="enviarDados()">
 
-    </form>
+        <div class="form-row">
+          <div class="form-group col-sm-2">
+            <label for="inputNome">Id</label>
+            <input type="text" class="form-control" value="0" id="IdEStoque" readonly>
+          </div>
+          <div class="form-group col-sm-10">
+            <label for="inputNome">Nome<span class="text-danger">*</span></label>
+            <input type="text" class="form-control" formControlName="NomeEstoque" id="NomeEstoque">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="col-sm-1 mb-2">
+            <button type="submit" class="btn btn-primary">Criar</button>
+          </div>
+          <div class="col-sm-1">
+            <button type="reset" class="btn btn-danger">Limpar</button>
+          </div>
+        </div>
+
+      </form>
+    </div>
   </div>
+  <!-- end -->
 </div>

@@ -19,7 +19,6 @@ import { ModalErroComponent } from './modal/modal-erro/modal-erro.component';
 import { ModalAlertComponent } from './modal/modal-alert/modal-alert.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
-import { AdicionarProdutoComponent } from './pages/estoque/adicionar-produto/adicionar-produto.component';
 import { CadastrarEstoqueComponent } from './pages/estoque/cadastrar-estoque/cadastrar-estoque.component';
 import { ConsultarEstoqueComponent } from './pages/estoque/consultar-estoque/consultar-estoque.component';
 
@@ -36,7 +35,6 @@ import { ConsultarEstoqueComponent } from './pages/estoque/consultar-estoque/con
     ModalSucessoComponent,
     ModalErroComponent,
     ModalAlertComponent,
-    AdicionarProdutoComponent,
     CadastrarEstoqueComponent,
     ConsultarEstoqueComponent
   ],
@@ -53,8 +51,7 @@ import { ConsultarEstoqueComponent } from './pages/estoque/consultar-estoque/con
       { path: 'editar-produto/:id', component: EditarProdutoComponent },
       { path: 'estoque', component: EstoqueComponent },
       { path: '404', component: PaginaNaoEncontradaComponent },
-      { path: 'adicionar-produto/:id', component: AdicionarProdutoComponent },
-      { path: 'consultar-estoque/:id/:nome', component: AdicionarProdutoComponent },
+      { path: 'consultar-estoque/:id/:nome', component: ConsultarEstoqueComponent },
       { path: 'cadastrar-estoque', component: CadastrarEstoqueComponent },
       {path: '**', redirectTo: '/404'}
     ]),

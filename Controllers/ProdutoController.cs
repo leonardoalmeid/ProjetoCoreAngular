@@ -23,6 +23,15 @@ namespace ProjetoCoreAngular.Controllers
             return produtos;
         }
 
+        [HttpGet]
+        [Route("ProdutoSemEstoque")]
+        public IEnumerable<Produto> ConsultarProdutosSemEstoque()
+        {
+            var produtos = _produto.RetornarProdutosSemEstoque();
+
+            return produtos;
+        }
+
         // GET: api/Produto/5
         [HttpGet]
         [Route("Apagar/{idProduto}")]

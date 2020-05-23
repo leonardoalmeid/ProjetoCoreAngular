@@ -28,6 +28,32 @@ namespace ProjetoCoreAngular.Repositorio
             return connection;
         }
 
+        public List<Produto> RetornarProdutosSemEstoque()
+        {
+            var db = _Connection();
+            List<Produto> produtos = new List<Produto>();
+
+            using (var con = new SqlConnection(db))
+            {
+                try
+                {
+                    var query = @"select * from Produtos where Estoque is null UNION select * from Produtos where Estoque = 0";
+                    con.Open();
+                    produtos = con.Query<Produto>(query).ToList();
+                }
+                catch (Exception ex)
+                {
+                    throw ex;
+                }
+                finally
+                {
+                    con.Close();
+                }
+            }
+
+            return produtos;
+        }
+
         public bool InserirProduto(Produto cadastrar)
         {
             var db = _Connection();
