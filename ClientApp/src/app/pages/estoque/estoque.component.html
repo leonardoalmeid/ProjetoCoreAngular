@@ -9,54 +9,59 @@
 
   <div class="row">
     <div class="col-12 mb-4">
-      <h4>Selecione qual procedimento deseja realizar:</h4>
+      <h4>Lista de Estoques</h4>
     </div>
   </div>
 
   <div class="row">
-    <div class="col-3 text-center">
-      <button class="btn btn-outline-primary btn-block" type="button" (click)="Realizar(1)">Criar Estoque</button>
+
+    <div class="col-sm-3 text-center">
+      <button class="btn btn-primary btn-block" type="button" [routerLinkActive]="['link-active']"
+       [routerLink]="['/cadastrar-estoque']">Novo estoque</button>
     </div>
-    <div class="col-3 text-center">
-      <button class="btn btn-outline-primary btn-block" type="button" (click)="Realizar(1)">Consultar Estoques</button>
+
+  </div>
+
+
+  <div class="row justify-content my-3">
+    <div class=" table-responsive-sm col-12">
+
+      <table class="table table-hover">
+        <thead>
+         <tr>
+          <th class="text-center">#</th>
+          <th class="text-center">Visualizar?</th>
+          <th class="text-center">Nome</th>
+          <th class="text-center">Quantidade</th>
+          <th class="text-center">Ações</th>
+         </tr>
+        </thead>
+        <tbody *ngFor="let estoque of estoques; let i = index">
+         <tr>
+          <th class="text-center" scope="row">{{i+1}}</th>
+          <td class="text-center">
+            <button class="btn btn-outline-primary btn-sm" type="button" [routerLinkActive]="['link-active']"
+              [routerLink]="['/consultar-estoque', estoque.id,estoque.nome]">Ver</button>
+          </td>
+          <td class="text-center">{{estoque.nome}}</td>
+          <td class="text-center">{{estoque.quantidade}}</td>
+          <td class="text-center">
+            <button class="btn btn-outline-primary btn-sm" type="button" [routerLinkActive]="['link-active']"
+              [routerLink]="['/adicionar-produto', estoque.id]">Adicionar Produto</button>
+            <button class="btn btn-outline-danger ml-2 btn-sm" type="button" (click)="removerEstoque(estoque.id)">Remover</button>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+       <div class="col-sm-12 text-center" *ngIf="estoques.length == 0">
+        <p>Nenhum estoque encontrado.</p>
+      </div>
+
     </div>
-    <div class="col-3 text-center">
-      <button class="btn btn-outline-primary btn-block" type="button" (click)="Realizar(1)">Adicionar item em estoque</button>
-    </div>
-    <div class="col-3 text-center">
-      <button class="btn btn-outline-primary btn-block" type="button" (click)="Realizar(2)">Remover item em estoque</button>
-    </div>
+    
   </div>
 
 </div>
- 
-<div class="row justify-content-center my-5" *ngIf="tab == 1">
-  <h5>Criar Estoque</h5>
-  <div class="col-12">
-    <form>
-
-      <div class="form-row">
-        <div class="form-group col-sm-2">
-          <label for="inputNome">Id</label>
-          <input type="text" class="form-control" id="inputId" style="background: #dddddd59;" value="1" disabled="true">
-        </div>
-        <div class="form-group col-sm-10">
-          <label for="inputNome">Nome</label>
-          <input type="text" class="form-control" id="inputNome">
-        </div>
-      </div>
-
-      <div class="form-row">
-        <div class="col-sm-12">
-          <button type="submit" class="btn btn-primary">Criar</button>
-        </div>
-      </div>
-
-    </form>
-  </div>
-</div>
-
-
 
 <blockquote class="blockquote text-center">
   <hr>

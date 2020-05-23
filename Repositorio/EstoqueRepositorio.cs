@@ -114,6 +114,40 @@ namespace ProjetoCoreAngular.Repositorio
             return produtos;
         }
 
+        public bool RemoverEstoque(int id)
+        {
+            var db = _Connection();
+            bool result;
+            var paramentro = new IdProduto() { Id = id };
+            using (var con = new SqlConnection(db))
+            {
+                try
+                {
+                    var query = @"DELETE FROM Estoques Where Id = @id";
+                    con.Open();
+                    var retorno = con.Execute(query, paramentro);
+                    if (retorno >= 1)
+                    {
+                        result = true;
+                    }
+                    else
+                    {
+                        result = false;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    throw ex;
+                }
+                finally
+                {
+                    con.Close();
+                }
+            }
+
+            return result;
+        }
+
         public bool RemoverProduto(EstoqueProduto dados)
         {
             var db = _Connection();
@@ -159,7 +193,17 @@ namespace ProjetoCoreAngular.Repositorio
             {
                 try
                 {
-                    var query = @"SELECT * FROM Estoques";
+                    var query = @"SELECT
+			                            P.Id,
+                                        P.Nome,
+                                        (SELECT
+                                            COUNT(C.Estoque)
+                                        FROM
+                                            Produtos C
+                                        WHERE
+                                            C.Estoque = P.Id ) AS Quantidade
+                                    FROM
+                                        Estoques P";
                     con.Open();
                     estoques = con.Query<Estoque>(query).ToList();
                 }

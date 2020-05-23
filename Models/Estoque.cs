@@ -13,5 +13,6 @@ namespace ProjetoCoreAngular.Models
         [Required]
         [MinLength(1, ErrorMessage = "Campo Obrigatorio!")]
         public string Nome { get; set; }
+        public string Quantidade { get; set; }
     }
 }

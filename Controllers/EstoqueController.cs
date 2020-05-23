@@ -38,6 +38,15 @@ namespace ProjetoCoreAngular.Controllers
             return result;
         }
 
+        [HttpGet]
+        [Route("Remover/{idProduto}")]
+        public bool Apagar(int idProduto)
+        {
+            var result = _estoque.RemoverEstoque(idProduto);
+
+            return result;
+        }
+
         // api/Estoque/Cadastrar
         [Route("Cadastrar")]
         [HttpPost]

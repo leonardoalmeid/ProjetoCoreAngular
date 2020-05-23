@@ -13,6 +13,7 @@ namespace ProjetoCoreAngular.Repositorio
         bool CadastrarEstoque(Estoque estoque);
         bool AdicionarProduto(EstoqueProduto dados);
         bool RemoverProduto(EstoqueProduto dados);
+        bool RemoverEstoque(int id);
 
     }
 }

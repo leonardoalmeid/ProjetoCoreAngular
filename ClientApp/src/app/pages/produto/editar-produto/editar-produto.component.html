@@ -1,1 +1,62 @@
-<p>editar-produto works!</p>
+<div class="title">
+  <h1>Atualização de Produto</h1>
+  <p class="lead">Atualize os dados do produto selecionado.</p>
+</div>
+
+<div class="container-fluid justify-content">
+<!-- Cadastrar Produtos -->
+<div class="row justify-content my-5">
+  <div class="col-12">
+    <form [formGroup]="formularioProduto" (ngSubmit)="atualizarDados()">
+
+      <div class="form-row">
+        <div class="form-group col-sm-2">
+          <label for="inputId">Id</label>
+          <input type="text" class="form-control" formControlName="Id" id="Id" readonly>
+        </div>
+        <div class="form-group required col-sm-10">
+          <label for="inputNome">Nome<span class="text-danger">*</span></label>
+          <input type="text" formControlName="Nome" class="form-control" id="Nome">
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group required col-sm-4">
+          <label for="inputMarca">Marca<span class="text-danger">*</span></label>
+          <input type="text" placeholder="Ferrari" formControlName="Marca" class="form-control" id="Marca">
+        </div>
+        <div class="form-group required col-sm-4">
+          <label for="inputCategoria">Categoria<span class="text-danger">*</span></label>
+          <select class="form-control" formControlName="Categoria" id="Categoria">
+            <option>Carro</option>
+            <option>Moto</option>
+          </select>
+        </div>
+        <div class="form-group required col-sm-4">
+          <label for="inputModelo">Modelo<span class="text-danger">*</span></label>
+          <input type="text" placeholder="488 GTB" class="form-control" formControlName="Modelo" id="Modelo">
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group required col-sm-4">
+          <label for="inputQuantidade">Quantidade<span class="text-danger">*</span></label>
+          <input type="number" min="1" placeholder="0" max="100" class="form-control" formControlName="Quantidade" id="Quantidade">
+        </div>
+        <div class="form-group required col-sm-4">
+          <label for="inputPrecoUnitario">Preço Unitário<span class="text-danger">*</span></label>
+          <input type="text" class="form-control" placeholder="Digite um valor" formControlName="PrecoUnitario" id="PrecoUnitario">
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="col-sm-1">
+          <button type="submit" class="btn btn-primary" [disabled]="!formularioProduto.valid">Atualizar</button>
+        </div>
+      </div>
+
+    </form>
+  </div>
+</div>
+<!-- end #cadastrarProduto-->
+</div>
