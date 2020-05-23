@@ -1,1 +1,1 @@
-# ProjetoCoreAngular
+# Controle de Estoque
